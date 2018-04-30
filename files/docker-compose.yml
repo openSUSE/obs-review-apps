@@ -1,0 +1,45 @@
+---
+version: '2'
+services:
+  db:
+    image: openbuildservice/mariadb
+  cache:
+    image: openbuildservice/memcached
+  backend:
+    image: openbuildservice/backend
+    volumes:
+    - ".:/obs"
+  worker:
+    image: openbuildservice/backend
+    volumes:
+    - ".:/obs"
+    privileged: true
+    depends_on:
+    - backend
+    command: "/obs/contrib/start_development_worker"
+  frontend:
+    image: openbuildservice/frontend
+    networks:
+    - traefik
+    - default
+    build:
+      dockerfile: docker-files/Dockerfile
+      context: src/api
+    command: "/obs/contrib/entrypoint.sh"
+    volumes:
+    - ".:/obs"
+    environment:
+    - RAILS_RELATIVE_URL_ROOT={{ root_url }}
+    labels:
+      traefik.frontend.rule: {{ traefik_frontend_rule }}
+      traefik.docker.network: traefik_default
+      traefik.port: '3000'
+    depends_on:
+    - db
+    - cache
+    - backend
+    - worker
+networks:
+  traefik:
+    external:
+      name: traefik_default

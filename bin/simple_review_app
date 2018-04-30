@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'simple_review_app'
+
+SimpleReviewApp.setup do |config|
+  config.github_repository = 'open-build-service'
+  config.github_organization = 'openSUSE'
+  config.github_labels = 'review-app'
+
+  #config.disable_comments = true
+  #config.data_directory = ''
+
+  config.github_username = 'obs-bot'
+  config.github_password = ''
+  config.overlay_files_directory = ''
+  config.preparation do
+    `git submodule init`
+    `git submodule update`
+  end
+end
+
+SimpleReviewApp.run
+
