@@ -10,10 +10,11 @@ SimpleReviewApp.setup do |config|
 
   #config.disable_comments = true
   #config.data_directory = ''
+  #config.host = ''
+  #config.overlay_files_directory = ''
 
   config.github_username = 'obs-bot'
   config.github_password = ''
-  config.overlay_files_directory = ''
   config.preparation do
     `git submodule init`
     `git submodule update`
