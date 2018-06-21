@@ -9,12 +9,12 @@ SimpleReviewApp.setup do |config|
   config.github_labels = 'review-app'
 
   #config.disable_comments = true
-  #config.data_directory = ''
-  #config.host = ''
-  #config.overlay_files_directory = ''
+  config.data_directory = '/review-lab/data'
+  config.host = 'obs-reviewlab.opensuse.org'
+  config.overlay_files_directory = '/review-lab/obs-review-apps/files'
 
-  config.github_username = 'obs-bot'
-  config.github_password = ''
+  #config.github_username = 'obs-bot'
+  #config.github_password = ''
   config.preparation do
     `git submodule init`
     `git submodule update`
