@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/ChrisBr/simple_review_app
-  revision: 44a438653f0ddb9d91856950c213075ec854fcc2
+  revision: beeaf71679d916209c895f3c3ac862f56bc151fd
   specs:
     simple_review_app (0.0.0)
       activemodel (~> 5.1)
       liquid (~> 4.0)
       octokit (~> 4.0)
+      rake (~> 12.3)
       zaru (~> 0.2)
 
 GEM
@@ -21,20 +22,23 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     concurrent-ruby (1.0.5)
-    faraday (0.15.0)
+    concurrent-ruby (1.0.5-java)
+    faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     liquid (4.0.0)
     minitest (5.11.3)
     multipart-post (2.0.0)
-    octokit (4.8.0)
+    octokit (4.9.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     public_suffix (3.0.2)
+    rake (12.3.1)
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
     thread_safe (0.3.6)
+    thread_safe (0.3.6-java)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     zaru (0.2.0)
