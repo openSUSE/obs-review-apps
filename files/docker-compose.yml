@@ -18,13 +18,11 @@ services:
     - backend
     command: "/obs/contrib/start_development_worker"
   frontend:
-    image: openbuildservice/frontend
+    user: frontend
+    image: openbuildservice/frontend-base
     networks:
     - traefik
     - default
-    build:
-      dockerfile: docker-files/Dockerfile
-      context: src/api
     command: "/obs/contrib/entrypoint.sh"
     volumes:
     - ".:/obs"
