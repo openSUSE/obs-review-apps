@@ -3,29 +3,32 @@ version: '2.1'
 services:
   db:
     image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/mariadb
+    command: /usr/lib/mysql/mysql-systemd-helper start
   cache:
     image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/memcached
+    command: /usr/sbin/memcached -u memcached
   backend:
     image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/backend
+    command: /obs/contrib/start_development_backend -d /obs
     volumes:
-    - ".:/obs"
+    - .:/obs
   worker:
     image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/backend
     volumes:
-    - ".:/obs"
+    - .:/obs
     privileged: true
     depends_on:
     - backend
-    command: "/obs/contrib/start_development_worker"
+    command: /obs/contrib/start_development_worker
   frontend:
     user: frontend
     image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/frontend-base
     networks:
     - traefik
     - default
-    command: "/obs/contrib/entrypoint.sh"
+    command: /obs/contrib/entrypoint.sh
     volumes:
-    - ".:/obs"
+    - .:/obs
     environment:
     - RAILS_RELATIVE_URL_ROOT={{ root_url }}
     labels:
