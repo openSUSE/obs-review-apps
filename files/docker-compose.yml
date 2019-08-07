@@ -2,15 +2,15 @@
 version: '2.1'
 services:
   db:
-    image: openbuildservice/mariadb
+    image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/mariadb
   cache:
-    image: openbuildservice/memcached
+    image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/memcached
   backend:
-    image: openbuildservice/backend
+    image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/backend
     volumes:
     - ".:/obs"
   worker:
-    image: openbuildservice/backend
+    image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/backend
     volumes:
     - ".:/obs"
     privileged: true
@@ -19,7 +19,7 @@ services:
     command: "/obs/contrib/start_development_worker"
   frontend:
     user: frontend
-    image: openbuildservice/frontend-base
+    image: registry.opensuse.org/obs/server/unstable/container/leap151/containers/openbuildservice/frontend-base
     networks:
     - traefik
     - default
