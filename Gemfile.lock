@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ChrisBr/simple_review_app
-  revision: b7c41f124f9275ca5266f6fe33c2d1acc57c3acc
+  revision: 6b0024709adebfb2a0427df2ed40df3d0b978624
   specs:
     simple_review_app (0.0.0)
       activemodel (~> 5.1)
