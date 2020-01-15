@@ -13,8 +13,7 @@ SimpleReviewApp.setup do |config|
   config.host = 'obs-reviewlab.opensuse.org'
   config.overlay_files_directory = '/review-lab/obs-review-apps/files'
 
-  #config.github_username = 'obs-bot'
-  #config.github_password = ''
+  #config.github_access_token = ''
   config.preparation do
     `git submodule init`
     `git submodule update`
@@ -22,4 +21,3 @@ SimpleReviewApp.setup do |config|
 end
 
 SimpleReviewApp.run
-
