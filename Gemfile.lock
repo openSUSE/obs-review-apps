@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/openSUSE/simple_review_app
-  revision: 51adbef852fc6a22a87fab189811340f29d762d1
+  revision: c045e3b0c5796d41a0e7790f4bacfe9b76924fce
   specs:
     simple_review_app (0.0.0)
       activemodel (>= 5.1, < 8.0)
