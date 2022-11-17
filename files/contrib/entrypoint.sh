@@ -15,7 +15,7 @@ bundle install --jobs=4 --retry=3 --local
 RAILS_ENV=development bundle exec rake dev:bootstrap
 RAILS_ENV=development bundle exec rake assets:precompile
 RAILS_ENV=development bundle exec rake sphinx:start
-RAILS_ENV=development bundle exec rake dev:development_testdata:create
+RAILS_ENV=development bundle exec rake dev:test_data:create
 RAILS_ENV=development bundle exec rake ts:stop
 
 echo "Starting application..."
