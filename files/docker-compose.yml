@@ -6,7 +6,7 @@ services:
     command: /usr/lib/mysql/mysql-systemd-helper start
   cache:
     image: registry.opensuse.org/obs/server/unstable/containers/containers/openbuildservice/memcached
-    command: /usr/sbin/memcached -u memcached
+    command: /usr/bin/memcached -u memcached
   backend:
     image: registry.opensuse.org/obs/server/unstable/containers/containers/openbuildservice/backend
     command: /obs/contrib/start_development_backend -d /obs
